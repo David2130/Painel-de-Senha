@@ -7,36 +7,82 @@
 	<link href="css/style.css" rel="stylesheet">
 	<script src="lib/jquery-3.3.1.min.js"></script>
 	<script src="lib/scripts.js"></script>
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+		}
+
+		/* Barra azul ocupa a largura toda da tela */
+		.header-bar {
+			width: 100vw;
+			position: relative;
+			left: 0;
+			background-color: #cce5ff; /* azul claro */
+			box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+		}
+
+		/* Conteúdo da barra fica centralizado e limitado */
+		.header-row {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 20px 50px;
+			max-width: 1200px; /* largura máxima da barra */
+			margin: 0 auto;
+		}
+
+		.header-title {
+			font-weight: bold;
+			font-size: 36px;
+			text-align: center;
+			flex: 1;
+			color: #004085; /* azul escuro para contraste */
+		}
+
+		.logo-wrapper {
+			width: 300px;
+			display: flex;
+			justify-content: center;
+			background: transparent; /* remove fundo branco */
+		}
+
+		.logo {
+			max-width: 100%;
+			height: auto;
+			background: transparent; /* remove fundo branco */
+			display: block;
+		}
+	</style>
 </head>
 
 <body>
-	<style>body {
-		margin: 0;
-		padding: 0;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		height: 100vh;
-	}
-		</style>
-	<div class="barraTop">&nbsp;</div>
-	<div class="container page">
-		<div class="row barraSuperior">
-			<div class="col-xs-1" style="text-align: right;"><p></p>>
-				<img src="imagens/Logo Alpha.png" class="AlphaLogo" height="120" width="300">
+
+	<!-- Barra azul ocupando a tela toda -->
+	<div class="header-bar">
+		<div class="header-row">
+			<div class="logo-wrapper">
+				<img src="imagens/Logo Alpha.png" class="logo" alt="Logo Alpha">
 			</div>
-			<div class="col-xs-11" style="text-align: right;"><p></p> 
-				<span class="subtitulo"> <strong>CENTRO DE ESPECIALIDADES MÉDICAS</strong></span> 
-				<img src="imagens/prefeitura.png" class="Prefeitura Logo" width="300" height="180">
+			
+			<div class="header-title">UBS CENTRAL</div>
+			
+			<div class="logo-wrapper">
+				<img src="imagens/prefeitura.png" class="logo" alt="Prefeitura">
 			</div>
 		</div>
+	</div>
+
+	<div class="container page">
+
+		<!-- Senha atual -->
 		<div class="row">
 			<div class="senhaAtual">
 				<div class="row">
 					<div class="col-xs-5 col-xs-offset-1" style="text-align: right;"><br><br>
 						<span class="senhaAtualTexto">SENHA &nbsp;</span>
 					</div>
-					<div class="col-xs-5"  style="text-align: left;">
+					<div class="col-xs-5" style="text-align: left;">
 						<span id="senhaAtualNumero">0000</span>
 					</div>
 					<input type="hidden" id="senhaNormal" value="0000">
@@ -44,6 +90,8 @@
 				</div>
 			</div>
 		</div>
+
+		<!-- Última chamada -->
 		<div class="row">
 			<div class="col-xs-4 col-xs-offset-4 ultimaSenha">
 				<br>
@@ -52,7 +100,9 @@
 				<span id="ultimaSenhaNumero">0000</span>
 			</div>
 		</div>
+
 	</div>
+
 	<audio id="audioChamada" src="audio/chamada.wav"></audio>
 </body>
 </html>
